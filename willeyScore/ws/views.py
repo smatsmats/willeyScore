@@ -10,6 +10,10 @@ def home(request):
     context = {'event_list': event_list}
     return render(request, 'ws/index.html', context)
 
+def event_sub(request, event_short_name):
+    e = get_object_or_404(Event, short_name=event_short_name)
+    return render(request, 'ws/event.html', {'e': e})
+
 def event(request, event_short_name):
     e = get_object_or_404(Event, short_name=event_short_name)
     return render(request, 'ws/event.html', {'e': e})
