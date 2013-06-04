@@ -25,6 +25,8 @@ class Event(models.Model):
                                null=True)
     sort_order = models.PositiveIntegerField(default=5) # Some day we mght hav a boat load of events and we might remember their order.
     time_between_cars = models.PositiveIntegerField(default=60) # seconds
+    certified_timestamp = models.DateTimeField(blank=True,
+                               null=True)
     last_modified_timestamp = models.DateTimeField('change timestamp',
                                blank=True,
                                null=True)
