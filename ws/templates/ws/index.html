@@ -1,0 +1,13 @@
+{% load url from future %}
+Yo!  Do these events look familiar
+{% if event_list %}
+    <ul>
+    {% for event in event_list %}
+        <li><a href="{% url 'event' event.short_name %}">{{ event.name }}</a> 
+            <button>Import / Export <a href="{% url 'inout' event.short_name %}">{{ event.name }}</a></button></li>
+    {% endfor %}
+    </ul>
+<!--        <li><a href="{{ event.short_name }}">{{ event.name }}</a></li>-->
+{% else %}
+    <p>No events are available.</p>
+{% endif %}
